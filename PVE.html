@@ -1,0 +1,52 @@
+<html>
+	<head lang="en-GB">
+
+
+		<title>Proxmox Virtualization Environment</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Title -->
+			<section id="header">
+				<div class="inner">
+					<span class="icon solid major fa-sitemap"></span>
+					<h1><b>Proxmox Virtualization Environment Project</b></h1>
+    					<ul class="actions special">
+						<li><a href="#one" class="button scrolly">Explore</a></li>
+					</ul>
+				</div>
+			</section>
+            <section id="one">
+                <div class="col-5 col-12-medium">
+                   <center> 
+                    <!--  
+                    <video width="1152" height="720" controls>
+                        <source src="pi-hole.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                      </video>
+                    -->  
+                      
+                    <header class="major">
+                        <h2>Server Management<br />
+                        </h2>
+                    </header>
+                    <p>One of my favorite projects so far has definitely been building and setting up my Proxmox server. Proxmox uses the KVM hypervisor and LXC(Linux Containers) with a web-based UI to manage it all. I started the build with an MSI FM2-A85XMA-E35 micro-ATX board with an AMD A10-5800K APU with 8 GB of memory and two hard drives for storage. Basically, it was my first pc all over again but instead of booting and installing windows, I would be installing the open-source server management platform, Proxmox. After hitting running into many different errors throughout the booting process, I decided to try running Proxmox on top of an install of Debian Buster instead of on the “bare-metal” system. After installing Proxmox through the repository and following all of the steps on the Proxmox Wiki, it was finally up.</p>
+                    <p>I had access to the server via my PC and started to create a virtual machine to test out all of the features. This is where I ran into a rather critical error, the virtual machine had no internet connection. Checking all of the network settings in the Debian machine, the Proxmox instance, and the virtual machine and everything seemed fine. I decided to reboot the whole system, and that was definitely a bad idea. Not only could I no longer open the web UI, but even in Debian, it would not start up properly. After a few days of trying to find out what I had done wrong by searching for the issues of forums and wikis, I looked at something I should have looked at well before I started. The minimum system requirements, rookie move for sure. The motherboard I was using had no designated virtualization support (AMD-V)  built into the bios or board, so even though the APU was capable of virtualization Proxmox didn’t respond well to splitting the network adapter because of the lack of virtualization of the board.  </p>
+                    <p>Thankfully I had a stash of old computer parts to pick from and was able to rebuild the server with an Intel Core i3-3220. Which is a year newer and effectively 9% faster according to UserBenchmark. With the proper hardware finally installed I was able to get a stable running version of Proxmox, I have even started using it to host my DNS sinkhole server Pi-Hole. </p>
+                </center>
+                </div>
+            </div>
+        </section>
+            		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+        </body>
+        </html>
